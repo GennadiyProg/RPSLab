@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>Личный кабинет</title>
+</head>
+<body>
+	<h2>Имя пользователя: <span th:text="${currentUser.username}"></span></h2>
+	<h3>Возможности:</h3>
+	<div sec:authorize="hasRole('ADMIN')">
+		<a href="/admin/">Список всех пользователей</a>
+		<a href="/admin/create">Создать нового пользователя</a>
+	</div>
+	<div sec:authorize="hasRole('CUSTOMER')">
+		<a href="/customer/tasks/">Создать задачу</a>
+		<a href="/customer/tasks/list/?isAll=true">Список задач</a>
+	</div>
+</body>
+</html>

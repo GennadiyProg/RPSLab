@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Список задач</title>
+</head>
+<body>
+<table style="border: 1px solid black">
+	<thead>
+	<tr>
+		<th>Описание</th>
+		<th>Статус</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="task : ${taskList}">
+		<td th:text="${task.description}">Description</td>
+		<td th:if="${task.taskStatus}">Выполнена</td>
+		<td th:if="${!task.taskStatus}">Не выполнена</td>
+		<td>
+			<form th:action="@{/customer/tasks/} + ${task.id} + @{/completed}" method="post">
+				<button type="submit">Изменить статус</button>
+			</form>
+		</td>
+		<td>
+			<form th:action="@{/customer/tasks/} + ${task.id} + @{/completed}" method="post">
+				<button type="submit">Изменить статус</button>
+			</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
+<a href="/account">Личный кабинет</a>
+</body>
+</html>
