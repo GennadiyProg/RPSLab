@@ -7,10 +7,10 @@
 <body>
 <form th:method="POST" th:action="@{/customer/tasks/}" th:object="${commandDescriptionDto}">
 	<div>
-		<label for="text">Описание задачи</label><textarea th:field="*{text}" id="text"></textarea>
+		<label for="text">Описание задачи </label><textarea th:field="*{text}" id="text"></textarea>
 		<br>
 
-		<input type="submit" value="Success!">
+		<input type="submit" value="Сохранить">
 	</div>
 </form>
 <a href="/account">Личный кабинет</a>

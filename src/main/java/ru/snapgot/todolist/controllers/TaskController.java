@@ -43,12 +43,18 @@ public class TaskController {
         return "redirect:/customer/tasks/list/?isAll=true";
     }
 
-    @PatchMapping("/{id}/modification")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void editTask(@RequestParam(value = "newDescription") String newDescription,
+    @GetMapping("/{id}/modification")
+    public String editTaskPage(@PathVariable String id, Model model) {
+        model.addAttribute("taskId", id);
+        return "customer/editTask";
+    }
+
+    @PostMapping("/{id}/modification")
+    public String editTask(@RequestParam(value = "newDescription") String newDescription,
                          @PathVariable String id,
                          Principal principal){
         taskService.edit(newDescription, id, userRepo.findByUsername(principal.getName()));
+        return "redirect:/customer/tasks/list/?isAll=true";
     }
 
     @GetMapping("/list/")

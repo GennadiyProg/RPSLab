@@ -8,12 +8,13 @@
 	<h2>Имя пользователя: <span th:text="${currentUser.username}"></span></h2>
 	<h3>Возможности:</h3>
 	<div sec:authorize="hasRole('ADMIN')">
-		<a href="/admin/">Список всех пользователей</a>
-		<a href="/admin/create">Создать нового пользователя</a>
+		<a href="/admin/">Список всех пользователей</a><br>
+		<a href="/admin/create">Создать нового пользователя</a><br>
 	</div>
 	<div sec:authorize="hasRole('CUSTOMER')">
-		<a href="/customer/tasks/">Создать задачу</a>
-		<a href="/customer/tasks/list/?isAll=true">Список задач</a>
+		<a href="/customer/tasks/">Создать задачу</a><br>
+		<a href="/customer/tasks/list/?isAll=true">Список задач</a><br>
 	</div>
+	<a href="/logout">Выход</a>
 </body>
 </html>

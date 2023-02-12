@@ -5,7 +5,7 @@
 	<title>Список задач</title>
 </head>
 <body>
-<table style="border: 1px solid black">
+<table style="border: 1px solid">
 	<thead>
 	<tr>
 		<th>Описание</th>
@@ -23,8 +23,11 @@
 			</form>
 		</td>
 		<td>
-			<form th:action="@{/customer/tasks/} + ${task.id} + @{/completed}" method="post">
-				<button type="submit">Изменить статус</button>
+				<a th:href="@{/customer/tasks/} + ${task.id} + @{/modification}"><button type="submit">Изменить описание</button></a>
+		</td>
+		<td>
+			<form th:action="@{/customer/tasks/} + ${task.id} + @{/delete}" method="post">
+				<button type="submit">Удалить</button>
 			</form>
 		</td>
 	</tr>

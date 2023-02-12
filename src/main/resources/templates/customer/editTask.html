@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Редактирование задачи</title>
+</head>
+<body>
+<form method="POST" th:action="@{/customer/tasks/} + ${taskId} + @{/modification}">
+	<div>
+		<label for="newDescription">Описание задачи </label><textarea id="newDescription" name="newDescription"></textarea>
+		<br>
+
+		<input type="submit" value="Сохранить">
+	</div>
+</form>
+</body>
+</html>
